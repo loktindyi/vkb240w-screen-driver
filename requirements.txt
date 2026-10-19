@@ -1,0 +1,5 @@
+Pillow>=10.0,<13
+PyUSB>=1.2,<2
+hidapi>=0.14,<1
+imageio-ffmpeg>=0.5,<1
+numpy>=1.26,<3
