@@ -18,6 +18,11 @@ import traceback
 from pathlib import Path
 from typing import Callable, Iterator, Protocol
 
+# NumPy here only does element-wise pixel conversion, never BLAS work.
+# OpenBLAS reserves a per-thread buffer when NumPy is imported (~32 MB per
+# logical CPU), which cost about 750 MB of commit charge on a 24-core machine.
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+
 import numpy as np
 from PIL import Image, ImageColor, ImageDraw, ImageFont, ImageOps
 
